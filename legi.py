@@ -4,7 +4,7 @@ import re
 from sys import exit
 
 def name():
-	nameID = {1911: ['pamela j. althoff'],2018:['jason a. barickman'],2022:['jennifer bertino-tarrant'],2020:['daniel biss'],1948:	['tim bivins'],1880:['william e. brady'], 2023:['melinda bush'], 1864:['james f. clayborne, jr.'], 1899:['jacqueline y. collins'], 2024: ['michael connelly'], 1865: ['john j. cullerton'],2025:['thomas cullerton'],2026:['bill cunningham'],1930:	['william delgado'],1866:['kirk w. dillard'],1960:['dan duffy'],1914:['gary forby'],1937:['michael w. frerichs'],1909:['william r. haine'],1905:['don harmon'],2027:['napoleon harris, iii'],2028:['michael e. hastings'],1936:	['linda holmes'],1910:['mattie hunter'],1961:['toi w. hutchinson'],1924:['mike jacobs'],1963:	['emil jones, iii'],1938:['david koehler'],1935:['dan kotowski'],1999:['darin m. lahood'],1997:	['steven m. landek'],1869:['kimberly a. lightford'],1870:['terry link'],1871:['david s. luechtefeld'],2029: ['andy manar'],1902:['iris y. martinez'],1995:['wm. sam mccann'],1964:	['kyle mccarter'],2030:	['karen mcconnaughay'],2010:['pat mcguire'],2031:['julie a. morrison'],1970:['john g. mulroe'],1872:['antonio munoz'],1934:['matt murphy'],1933: ['michael noland'],2032: ['jim oberweis'],1873: ['christine radogno'],1917: ['kwame raoul'],1975: ['sue rezin'],1908:['dale a. righter'],2033:['chapin rose'],1897: ['martin a. sandoval'],1874:	['ira i. silverstein'],2034:['steve stadelman'],1947: ['heather a. steans'],1906: ['john m. sullivan'],1875:['dave syverson'],1876:	['donne e. trotter'],2035:['patricia van pelt']}
+	nameID = {1911: ['PAMELA ALTHOFF'],2018:['JASON BARICKMAN'],2022:['JENNIFER BERTINO-TARRANT'],2020:['DANIEL BISS'],1948:	['TIM BIVINS'],1880:['WILLIAM BRADY'], 2023:['MELINDA BUSH'], 1864:['JAMES CLAYBORNE, JR.'], 1899:['JACQUELINE COLLINS'], 2024: ['MICHAEL CONNELLY'], 1865: ['JOHN CULLERTON'],2025:['THOMAS CULLERTON'],2026:['BILL CUNNINGHAM'],1930:	['WILLIAM DELGADO'],1866:['KIRK DILLARD'],1960:['DAN DUFFY'],1914:['GARY FORBY'],1937:['MICHAEL FRERICHS'],1909:['WILLIAM HAINE'],1905:['DON HARMON'],2027:['NAPOLEON HARRIS, III'],2028:['MICHAEL HASTINGS'],1936:	['LINDA HOLMES'],1910:['MATTIE HUNTER'],1961:['TOI HUTCHINSON'],1924:['MIKE JACOBS'],1963:	['EMIL JONES, III'],1938:['DAVID KOEHLER'],1935:['DAN KOTOWSKI'],1999:['DARIN LAHOOD'],1997:	['STEVEN LANDEK'],1869:['KIMBERLY LIGHTFORD'],1870:['TERRY LINK'],1871:['DAVID LUECHTEFELD'],2029: ['ANDY MANAR'],1902:['IRIS MARTINEZ'],1995:['WM. SAM MCCANN'],1964:	['KYLE MCCARTER'],2030:	['KAREN MCCONNAUGHAY'],2010:['PAT MCGUIRE'],2031:['JULIE MORRISON'],1970:['JOHN MULROE'],1872:['ANTONIO MUNOZ'],1934:['MATT MURPHY'],1933: ['MICHAEL NOLAND'],2032: ['JIM OBERWEIS'],1873: ['CHRISTINE RADOGNO'],1917: ['KWAME RAOUL'],1975: ['SUE REZIN'],1908:['DALE RIGHTER'],2033:['CHAPIN ROSE'],1897: ['MARTIN SANDOVAL'],1874:	['IRA SILVERSTEIN'],2034:['STEVE STADELMAN'],1947: ['HEATHER STEANS'],1906: ['JOHN SULLIVAN'],1875:['DAVE SYVERSON'],1876: ['DONNE TROTTER'],2035:['PATRICIA VAN PELT']}
 	return nameID
 	
 def main():
@@ -29,14 +29,12 @@ def main():
 	return directory
 	
 def ask_name (nameID):
-	member = str(raw_input("Who are you looking for ").lower())
-	if member == 'exit':
-		exit(0)
-	else:
-		for nameIDkey, value in nameID.items():
-			for v in value:
-				if member in v:
-					return nameIDkey	
+	member = str(raw_input("Who are you looking for ").upper())
+	for nameIDkey, value in nameID.items():
+		for v in value:
+			if member in v:
+				return nameIDkey	
+					
 def individual(directory,nameIDkey):
 	legisl = directory.get(nameIDkey)
 	bill_count = 0

@@ -3,7 +3,8 @@ import urllib2
 import re
 
 def name():
-	nameID = {1897: ['Ira I. Silverstein'], 1899: ['Michael Connelly'], 1924: ['Emil Jones, III'], 1930: ['Kirk W. Dillard'], 1933: ['Jim Oberweis'], 1934:['Michael Noland'], 1935:['Darin M. LaHood'], 1936:['Mattie Hunter'], 1937:['William R.Haine'], 1938:['Dan Kotowski'], 2030:['Pat McGuire'], 1947:['John M. Sullivan'], 1948:['William E. Brady'], 2033:['Martin A. Sandoval'], 1960:['Gary Forby'], 1961:['Mike Jacobs'], 1963:['David Koehler'], 1964:['KarenMcConnaughay'], 1906:['Dave Syverson'], 1970:['Antonio Munoz'], 1975:['Dale A. Righter'], 1869:['Terry Link'], 1864:['Jacqueline Y. Collins'], 1865:['Thomas Cullerton'], 1866:['Dan Duffy'], 1995:['Kyle McCarter'], 1997:['Kimberly A. Lightford'], 1870:['David S. Luechtefeld'], 1999:['Steven M. Landek'], 1872:['Matt Murphy'], 1873:['Kwame Raoul'], 1874:['Steve Stadelman'], 1875:['Donne E. Trotter'], 1876:['Patricia Van Pelt'], 1880:['Melinda Bush'], 2010:['Julie A. Morrison'], 1871:['Andy Manar'], 2018:['Jennifer Bertino-Tarrant'], 2020:['Tim Bivins'], 2022:['Daniel Biss'], 2023:['James F. Clayborne, Jr.'], 2024:['John J. Cullerton'], 2025:['Bill Cunningham'], 2026:['William Delgado'], 2027:['Michael E. Hastings'], 2028:['Linda Holmes'], 2029:['Iris Y. Martinez'], 1902:['Wm. Sam McCann'], 2031: ['John G. Mulroe'], 2032:['Christine Radogno'], 1905:['Napoleon Harris, III'], 2034:['Heather A. Steans'], 1908:['Chapin Rose'], 1909:['Don Harmon'], 1910:['Toi W. Hutchinson'], 1911:['Pamela J. Althoff'], 1914:['Michael W. Frerichs'], 1917: ['Sue Rezin']}
+	nameID = {1911: ['Pamela J. Althoff'],2018:	['Jason A. Barickman'],2022:['Jennifer Bertino-Tarrant'],2020:['Daniel Biss'],1948:	['Tim Bivins'],1880:['William E. Brady'], 2023:['Melinda Bush'], 1864:['James F. Clayborne, Jr.'], 1899:['Jacqueline Y. Collins'], 2024: ['Michael Connelly'], 1865: ['John J. Cullerton'],2025:['Thomas Cullerton'],2026:['Bill Cunningham'],1930:	['William Delgado'],1866:['Kirk W. Dillard'],1960:['Dan Duffy'],1914:['Gary Forby'],1937:['Michael W. Frerichs'],1909:['William R. Haine'],1905:['Don Harmon'],2027:['Napoleon Harris, III'],2028:['Michael E. Hastings'],1936:	['Linda Holmes'],1910:['Mattie Hunter'],1961:['Toi W. Hutchinson'],1924:['Mike Jacobs'],1963:	['Emil Jones, III'],1938:['David Koehler'],1935:['Dan Kotowski'],1999:['Darin M. LaHood'],1997:	['Steven M. Landek'],1869:['Kimberly A. Lightford'],1870:['Terry Link'],1871:['David S. Luechtefeld'],2029: ['Andy Manar'],1902:['Iris Y. Martinez'],1995:['Wm. Sam McCann'],1964:	['Kyle McCarter'],2030:	['Karen McConnaughay'],2010:['Pat McGuire'],2031:['Julie A. Morrison'],1970:['John G. Mulroe'],1872:['Antonio Munoz'],1934:['Matt Murphy'],1933: ['Michael Noland'],2032: ['Jim Oberweis'],1873: ['Christine Radogno'],1917: ['Kwame Raoul'],1975: ['Sue Rezin'],1908:['Dale A. Righter'],2033:['Chapin Rose'],1897: ['Martin A. Sandoval'],1874:	['Ira I. Silverstein'],2034:['Steve Stadelman'],1947: ['Heather A. Steans'],1906: ['John M. Sullivan'],1875:['Dave Syverson'],1876:	['Donne E. Trotter'],2035:['Patricia Van Pelt']}
+
 	return nameID
 	
 def main():
@@ -51,5 +52,5 @@ def individual(direct,nameIDkey):
 				else:
 					print col[0].string +' '+sponsor
 
-
-individual(main(),ask_name(name()))
+while True:
+	individual(main(),ask_name(name()))	

@@ -57,7 +57,7 @@ def individual(siteDirectory,nameIDkey,soup):
 	else:
 		soup
 		table = soup.find('table', cellpadding=3)
-		la = str(raw_input('Public Act = p, Passed both chambers = bc, or Stuck in the system = r :'))
+		la = raw_input('Public Act = P, Passed both chambers = BC, or Stuck in the system = R :').upper()
 		for item in table.findAll('tr')[1:]:
 				col = item.findAll('td')
 				sponsor = col[1].string
@@ -66,7 +66,7 @@ def individual(siteDirectory,nameIDkey,soup):
 				#link = re.findall(r'(http?://\S+)',links)
 				bill = col[0].string
 				last_action_date = col[5].string
-				if la == 'p':
+				if la == 'P':
 					for z in re.findall('2014', last_action_date):					
 						for y in re.findall(chamber_abbr, bill):
 							for x in re.findall('Public Act', last_action):
@@ -75,7 +75,7 @@ def individual(siteDirectory,nameIDkey,soup):
 								else:
 									bill_count+=1
 									print bill+' '+sponsor+' '+last_action_date
-				elif la == 'bc':
+				elif la == 'BC':
 					for z in re.findall('2014', last_action_date):					
 						for y in re.findall(chamber_abbr, bill):				
 							for x in re.findall('Both', last_action):
@@ -84,7 +84,7 @@ def individual(siteDirectory,nameIDkey,soup):
 								else:
 									bill_count+=1
 									print bill, sponsor, last_action_date
-				elif la == 'r':
+				elif la == 'R':
 					for z in re.findall('2014', last_action_date):					
 						for y in re.findall(chamber_abbr, bill):				
 							if re.findall('ferred', last_action):
@@ -95,7 +95,7 @@ def individual(siteDirectory,nameIDkey,soup):
 									print bill, sponsor, last_action_date
 				else:
 					print 'Please enter either p, bc, or r'
-					la = str(raw_input('Public Act = p, Passed both chambers = bc, or Stuck in the system = r :'))
+					la = raw_input('Public Act = P, Passed both chambers = BC, or Stuck in the system = R :').upper()
 	print 'BILLS FOUND: ',bill_count
 
 chamber=raw_input('House or Senate? ').upper()

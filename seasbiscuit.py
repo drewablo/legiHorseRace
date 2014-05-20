@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import urllib2
 import re
 import csv
+import json
 
 def stew(site):
 	url = urllib2.urlopen(site)
@@ -41,6 +42,9 @@ for link in links:
 				with open('house.csv', 'wb') as f:
 					writer = csv.writer(f)
 					writer.writerows(master_list)
+with open('house.txt', 'w') as outfile:
+	json.dump(master_list, outfile)
+					
 site = 'http://www.ilga.gov/senate/'
 links = main(stew(site))
 chamber_abbr = 'SB'
@@ -60,4 +64,6 @@ for link in links:
 				master_list.append([sponsor, bill, last_action, last_action_date])	
 				with open('senate.csv', 'wb') as f:
 					writer = csv.writer(f)
-					writer.writerows(master_list)		
+					writer.writerows(master_list)	
+with open('senate.txt', 'w') as outfile:
+	json.dump(master_list, outfile)			

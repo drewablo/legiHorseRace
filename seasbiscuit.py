@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib2
 import re
-import itertools
 import csv
 
 def stew(site):

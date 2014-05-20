@@ -21,9 +21,8 @@ def main(soup):
 			append1(str(l))
 			x+=1
 	return links
-x=0
 site = 'http://www.ilga.gov/house/'
-links = main(stew('http://www.ilga.gov/house/'))
+links = main(stew(site))
 chamber_abbr = 'HB'
 master_list = []
 for link in links:
@@ -42,4 +41,23 @@ for link in links:
 				with open('house.csv', 'wb') as f:
 					writer = csv.writer(f)
 					writer.writerows(master_list)
-		
+site = 'http://www.ilga.gov/senate/'
+links = main(stew(site))
+chamber_abbr = 'SB'
+master_list = []
+for link in links:
+	soup = stew(link)
+	table = soup.find('table', cellpadding=3)
+	for item in table.findAll('tr')[1:]:
+		col = item.findAll('td')
+		bill = col[0].string
+		sponsor = col[1].string
+		sponsor = sponsor.encode('ascii','replace')
+		last_action = col[4].string
+		last_action_date = col[5].string
+		for z in re.findall('2014', last_action_date):
+			for q in re.findall(chamber_abbr, bill):
+				master_list.append([sponsor, bill, last_action, last_action_date])	
+				with open('senate.csv', 'wb') as f:
+					writer = csv.writer(f)
+					writer.writerows(master_list)		
